@@ -1,0 +1,52 @@
+
+连接数据库, 默认的用户和数据库是postgres
+ psql -U user -d dbname 
+
+切换数据库,相当于mysql的use dbname
+ \c dbname
+列举数据库，相当于mysql的show databases
+ \l
+列举表，相当于mysql的show tables
+ \dt
+查看表结构，相当于desc tblname,show columns from tbname
+ \d tblname 
+
+\di 查看索引  
+
+
+
+
+
+
+psql -h 10.167.19.40 -p 5432 -d wedb -U weuser
+
+
+
+
+copy pmnutbl to  'D://pmnutbl.csv' with csv header;
+
+copy (select * from pmnutbl order by pmnuno,gmnulinkno,pmnuseq) to  'D://pmnutbl.csv' with csv header;
+
+copy (select * from bmnutbl order by bmnuno) to  'D://bmnutbl.csv' with csv header;
+
+
+
+---------------------------------------------------
+
+3,初始化数据库,若不使用-U admin,则数据库里自动添加当前windows用户(即postgres)为数据库帐号
+initdb.exe -D E:\postgresql-9.4.0-1-windows-x64\data -E UTF-8 --locale=chs
+
+4,启动数据库
+pg_ctl.exe -D E:\postgresql-9.4.0-1-windows-x64\data -l logfile start
+
+5,停止数据库
+pg_ctl.exe -D E:\postgresql-9.4.0-1-windows-x64\data stop
+
+四、注册为Windows服务
+
+1,注册为windows服务,当前windows用户(即postgres)将作为PostgreSQL服务的登录用户
+   pg_ctl.exe register -D E:\postgresql-9.4.0-1-windows-x64\data -NPostgreSQL
+
+2,启动PostgreSQL服务
+net start PostgreSQL 
+---------------------------------------------------
