@@ -1,0 +1,30 @@
+rem *******************
+rem please putin ‹Æ–±ID
+rem *******************
+set /p ID= 
+rem *******************
+rem please putin ’S“–’iŠK
+rem UI2/SS/PT1/PT2
+rem *******************
+set OUTPUT=D:\‹Zp•×‹­Ž‘—¿\Ž‘—¿\BAT\CheckFileIsExist
+set /p phases=
+if %phases%==UI2 (
+	cd /d S:\03_Še‹Æ–±\%ID%\02_UI2
+	attrib +s /s entries
+	attrib +s /s lock
+	dir /s/b/a:-r-h-s-d >S:\03_Še‹Æ–±\%ID%\filePath.txt
+	attrib -s /s entries
+	attrib -s /s lock
+)
+
+
+
+set IS_WK=D:\eclipse\CanonUGW\workspace_ŠJ”­Ž‘ŽY_20100129
+set JS_PATH=%IS_WK%\ugw_web\ContextRoot\js\business\
+set UGW_BEAN_PATH=%IS_WK%\
+rem D:\eclipse\CanonUGW\workspace_ŠJ”­Ž‘ŽY_20100129\ugw_ejb\src\com\canon\eservice\ugw\UW1801\cbs
+set UGW_EJB_PATH=%IS_WK%\ugw_ejb\src\com\canon\eservice\ugw\%FUNC_ID%\cbs
+rem D:\eclipse\CanonUGW\workspace_ŠJ”­Ž‘ŽY_20100129\ugw_web\src\com\canon\eservice\ugw\UW1801\web
+set UGW_WEB_PATH=%IS_WK%\
+set OUTPUT=D:\‹Zp•×‹­Ž‘—¿\Ž‘—¿\BAT\CheckFileIsExist
+dir /s/b/a:-r-h-s-d >%OUTPUT%\filePath.txt
